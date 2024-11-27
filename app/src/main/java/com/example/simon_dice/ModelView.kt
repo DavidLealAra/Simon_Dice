@@ -29,4 +29,15 @@ class ModelView() : ViewModel() {
     //Almacena el índice actual de la secuencia de colores
     private var indiceActual = 0
 
+    /**
+     * Listar botones
+     */
+    fun getButtons(): List<ButtonData> {
+        return listOf(
+            ButtonData(ColorButton.VERDE, RoundedCornerShape(bottomEnd = 180.dp)),
+            ButtonData(ColorButton.ROJO, RoundedCornerShape(bottomStart = 180.dp)),
+            ButtonData(ColorButton.AMARILLO, RoundedCornerShape(topEnd = 180.dp)),
+            ButtonData(ColorButton.AZUL, RoundedCornerShape(topStart = 180.dp))
+        )
+    }
 }
