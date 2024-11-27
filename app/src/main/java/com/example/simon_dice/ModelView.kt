@@ -56,6 +56,16 @@ class ModelView() : ViewModel() {
         }
     }
     /**
+     * Función que finaliza el juego y cambia el estado a PERDIDO.
+     */
+    fun endGame() {
+        estadoLiveData.value = Estados.PERDIDO
+        mensajeC.value = "Perdiste"
+        Datos.ronda.value = 0
+        Log.d(TAG_LOG, "Estado: ${estadoLiveData.value}")
+    }
+
+    /**
      * Agrega un color para que el usuario adivine.
      */
     fun agregarColorASecuencia() {
