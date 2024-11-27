@@ -54,9 +54,9 @@ El proyecto está estructurado en tres componentes principales, según el patró
 - Se utiliza `viewModelScope` para manejar operaciones asincrónicas con **corutinas** como:
     - Mostrar la secuencia de colores al usuario.
     - Asegurar intervalos entre las animaciones y transiciones de estado.
-
-</details>
 ---
+</details>
+
 
 <details>
 
@@ -84,9 +84,9 @@ El proyecto está estructurado en tres componentes principales, según el patró
 2. **`mostrarSecuencia()`**: Utiliza **corutinas** para mostrar la secuencia de colores con un intervalo de tiempo.
 3. **`compararColorSeleccionado(colorSeleccionado)`**: Verifica si el color seleccionado es correcto y avanza en la secuencia o termina el juego.
 4. **`agregarColorASecuencia()`**: Añade un color aleatorio a la secuencia y actualiza el estado de la ronda.
-
-</details>
 ---
+</details>
+
 
 <details>
 
@@ -97,9 +97,9 @@ El proyecto está estructurado en tres componentes principales, según el patró
 - **LiveData**: Para la observación de datos reactivos.
 - **Corutinas**: Para manejar tareas asincrónicas dentro del ViewModel.
 - **MVVM**: Arquitectura de diseño para una separación clara de responsabilidades.
-
-</details>
 ---
+</details>
+
 
 <details>
 
@@ -117,9 +117,9 @@ El proyecto está estructurado en tres componentes principales, según el patró
 3. **Documentación del Código**:
     - Cada clase, función y componente está claramente comentado.
     - Los comentarios explican el propósito y funcionamiento de cada sección.
-
-</details>
 ---
+</details>
+
 <details>
 
   <summary id="cómo-jugar"><h2><b>🕹️ Como Jugar</b></h2></summary>
@@ -128,9 +128,9 @@ El proyecto está estructurado en tres componentes principales, según el patró
 2. Observa la secuencia de colores generada automáticamente.
 3. Repite la secuencia presionando los botones en el orden correcto.
 4. Si fallas, el juego termina y puedes reiniciarlo.
-
-</details>
 ---
+</details>
+
 
 <details>
 
@@ -138,9 +138,10 @@ El proyecto está estructurado en tres componentes principales, según el patró
 - Agregar niveles de dificultad con secuencias más largas.
 - Incluir sonidos asociados a cada color para mejorar la experiencia del usuario.
 - Guardar el puntaje más alto en memoria persistente.
-
-</details>
 ---
+</details>
+
+
 ## 🎨 **Capturas del Juego**
 
 1. **Pantalla de Inicio**  
