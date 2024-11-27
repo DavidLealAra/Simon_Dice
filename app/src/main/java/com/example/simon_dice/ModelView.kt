@@ -55,6 +55,16 @@ class ModelView() : ViewModel() {
             indiceActual = 0
         }
     }
+    /**
+     * Agrega un color para que el usuario adivine.
+     */
+    fun agregarColorASecuencia() {
+        val randomButtonIndex = (1..4).random()
+        val nuevoColor = ColorButton.values().first { it.value == randomButtonIndex }
+        secuenciaColores.add(nuevoColor)
+        Datos.ronda.value = Datos.ronda.value?.plus(1) // Incrementa la ronda
+        mostrarSecuencia()
+    }
 
     /**
      * Listar botones
