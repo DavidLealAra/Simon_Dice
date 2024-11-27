@@ -40,3 +40,58 @@ fun Boton_Start(viewModel: ModelView, estado: Estados) {
         Text("Start")
     }
 }
+
+/**
+ * Función que muestra los botones de colores.
+ */
+@Composable
+fun Botones(viewModel: ModelView, estado: Estados, TAG_LOG: String) {
+    val buttons = viewModel.getButtons()
+    val mensajeC by viewModel.mensajeC
+    var iluminado by remember { mutableStateOf<ColorButton?>(null) }
+
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.background(Color.LightGray)
+    ) {
+        buttons.chunked(2).forEach { rowButtons ->
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.background(Color.LightGray)
+            ) {
+                rowButtons.forEach { buttonData ->
+                    val isIlluminated = mensajeC == buttonData.colorButton.label || iluminado == buttonData.colorButton
+                    Button(
+                        onClick = {
+                            if (estado == Estados.ADIVINANDO) {
+                                Log.d(TAG_LOG, buttonData.colorButton.label)
+                                iluminado = buttonData.colorButton
+                                val isCorrect = viewModel.compararColorSeleccionado(buttonData.colorButton)
+                                if (!isCorrect) {
+                                    viewModel.endGame()
+                                }
+                            }
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = if (isIlluminated) buttonData.colorButton.color.copy(alpha = 0.5f) else buttonData.colorButton.color
+                        ),
+                        modifier = Modifier
+                            .padding(5.dp)
+                            .size(width = 180.dp, height = 180.dp),
+                        shape = buttonData.shape,
+                    ) {
+                    }
+
+                    if (iluminado == buttonData.colorButton) {
+                        LaunchedEffect(iluminado) {
+                            delay(500)
+                            iluminado = null
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
