@@ -39,6 +39,24 @@ class ModelView() : ViewModel() {
     }
 
     /**
+     * Muestra la secuencia de colores.
+     * Cambia el estado a ADIVINANDO.
+     */
+    private fun mostrarSecuencia() {
+        viewModelScope.launch {
+            for (color in secuenciaColores) {
+                mensajeC.value = color.label
+                delay(500)
+                mensajeC.value = ""
+                delay(500)
+            }
+            delay(500)
+            estadoLiveData.value = Estados.ADIVINANDO
+            indiceActual = 0
+        }
+    }
+
+    /**
      * Listar botones
      */
     fun getButtons(): List<ButtonData> {
