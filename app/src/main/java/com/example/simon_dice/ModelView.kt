@@ -55,6 +55,7 @@ class ModelView() : ViewModel() {
             indiceActual = 0
         }
     }
+
     /**
      * Función que finaliza el juego y cambia el estado a PERDIDO.
      */
@@ -64,7 +65,25 @@ class ModelView() : ViewModel() {
         Datos.ronda.value = 0
         Log.d(TAG_LOG, "Estado: ${estadoLiveData.value}")
     }
-
+    /**
+     * Función que compara el color seleccionado con el color de la secuencia.
+     */
+    fun compararColorSeleccionado(colorSeleccionado: ColorButton): Boolean {
+        if (colorSeleccionado == secuenciaColores[indiceActual]) {
+            indiceActual++
+            if (indiceActual == secuenciaColores.size) {
+                estadoLiveData.value = Estados.GENERANDO
+                viewModelScope.launch {
+                    delay(1500)
+                    agregarColorASecuencia()
+                }
+            }
+            return true
+        } else {
+            endGame()
+            return false
+        }
+    }
     /**
      * Agrega un color para que el usuario adivine.
      */
