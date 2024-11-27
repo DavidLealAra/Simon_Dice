@@ -37,6 +37,14 @@ class ModelView() : ViewModel() {
         Log.d(TAG_LOG,"Estado: ${estadoLiveData.value}")
         buttons.value = getButtons()
     }
+    /**
+     * Función que inicia el juego.
+     */
+    fun empezarJugar() {
+        estadoLiveData.value = Estados.GENERANDO
+        secuenciaColores.clear()
+        agregarColorASecuencia()
+    }
 
     /**
      * Muestra la secuencia de colores.
