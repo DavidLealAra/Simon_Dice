@@ -24,6 +24,39 @@ import androidx.compose.runtime.LaunchedEffect
 import kotlinx.coroutines.delay
 
 /**
+ * Interfaz de usuario.
+ */
+@Composable
+fun IU(viewModel: ModelView) {
+    val TAG_LOG = "miDebug"
+    val estado by viewModel.estadoLiveData.observeAsState(Estados.INICIO)
+    val ronda by Datos.ronda.observeAsState(0) // Observa el LiveData de ronda
+
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.background(Color.LightGray)
+    ) {
+        if (estado == Estados.PERDIDO) {
+            Text(
+                text = "Perdiste",
+                color = Color.Red,
+                modifier = Modifier.padding(16.dp)
+            )
+        }
+
+        Text(
+            text = "Ronda: $ronda",
+            color = Color.Green,
+            modifier = Modifier.padding(16.dp)
+        )
+
+        Botones(viewModel, estado, TAG_LOG)
+        Boton_Start(viewModel, estado)
+    }
+}
+
+/**
  * Boton de inicio.
  */
 @Composable
