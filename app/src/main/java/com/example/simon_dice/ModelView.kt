@@ -30,6 +30,15 @@ class ModelView() : ViewModel() {
     private var indiceActual = 0
 
     /**
+     * Inicio la clase ModelView.
+     * Inicio estado y botones.
+     */
+    init {
+        Log.d(TAG_LOG,"Estado: ${estadoLiveData.value}")
+        buttons.value = getButtons()
+    }
+
+    /**
      * Listar botones
      */
     fun getButtons(): List<ButtonData> {
