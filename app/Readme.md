@@ -25,7 +25,7 @@ Este proyecto es una implementación del juego "Simon Dice", desarrollado en Kot
     - **Documentación del Código**
 5. [🕹️ **Cómo Jugar**](#cómo-jugar)
 6. [📚 **Próximas Mejoras**](#próximas-mejoras)
-7. [🎨 ** Capturas del **](#próximas-mejoras)
+7. [🎨 **Capturas del Juego**](#próximas-mejoras)
 
 <details>
 
