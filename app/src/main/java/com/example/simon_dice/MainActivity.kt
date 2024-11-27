@@ -9,21 +9,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.Modifier
 import com.example.simon_dice.ui.theme.Simon_DiceTheme
 
-
-/**
- * Clase MainActivity que se encarga de mostrar la interfaz de usuario.
- */
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             Simon_DiceTheme {
                 Surface(
-                    color = Color.Black,
+                    color = Color.LightGray,
                     modifier = Modifier.fillMaxSize()
                 ) {
-
+                    IU(ModelView())
                 }
             }
         }
